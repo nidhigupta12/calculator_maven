@@ -46,6 +46,33 @@
                 <mainClass>com.example.calculator_maven.CalculatorMavenApplication</mainClass>
             </configuration>
 			</plugin>
+			  <plugin>
+            <groupId>org.jfrog.buildinfo</groupId>
+            <artifactId>artifactory-maven-plugin</artifactId>
+            <version>2.6.1</version>
+            <inherited>false</inherited>
+            <executions>
+                <execution>
+                    <id>build-info</id>
+                    <goals>
+                        <goal>publish</goal>
+                    </goals>
+                    <configuration>
+                        <deployProperties>
+                            <gradle>awesome</gradle>
+                            <review.team>qa</review.team>
+                        </deployProperties>
+                        <publisher>
+                           <contextUrl>http://localhost:8081/artifactory</contextUrl>
+                                <username>admin</username>
+                                <password>password</password>
+                                <repoKey>jenkins-release</repoKey>
+                                <snapshotRepoKey>jenkins-snapshot</snapshotRepoKey>
+                        </publisher>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
 		</plugins>
 	</build>
 	
