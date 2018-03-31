@@ -3,12 +3,12 @@ pipeline {
      stages {
           stage("Compile") {
                steps {
-                    sh "./mvnw compile"
+                    bat "mvnw compile"
                }
           }
           stage("Unit test") {
                steps {
-                    sh "./mvnw test"
+                    bat "mvnw test"
                }
           }
 		   stage("Code coverage") {
