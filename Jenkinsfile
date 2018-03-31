@@ -13,14 +13,14 @@ pipeline {
           }
 		   stage("Code coverage") {
      steps {
-          sh "./mvnw jacocoTestReport"
-          sh "./mvnw jacocoTestCoverageVerification"
+          bat "mvnw jacocoTestReport"
+          bat "mvnw jacocoTestCoverageVerification"
      }
 }
 		  
 stage("Package") {
      steps {
-          sh "./mvnw package"
+          bat "mvnw package"
      }
 }
 
